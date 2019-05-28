@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  mysql:
+    image: mysql:5.6
+    container_name: crevo_mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - TZ=Asia/Tokyo
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - ./docker/mysql/volume:/var/lib/mysql
+      - ./docker/mysql/config:/etc/mysql/conf.d
+
+  elasticsearch:
+    image: elasticsearch:5.6-alpine
+    container_name: crevo_elasticsearch
+    ports:
+      - "9200:9200"
+      - "9250:9200"
+    volumes:
+      - ./docker/elasticsearch/volume:/usr/share/elasticsearch/data
