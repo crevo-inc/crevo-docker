@@ -8,6 +8,7 @@ Running development environments
 
 ```sh
 $ docker-compose up --no-start
+$ docker-compose run --rm elasticsearch elasticsearch-plugin install analysis-kuromoji
 ```
 
 ### Run
